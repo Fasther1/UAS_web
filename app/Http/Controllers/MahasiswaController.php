@@ -31,13 +31,11 @@ class MahasiswaController extends Controller
         Mahasiswa::create($validasi_data);
         return redirect()->route('mahasiswa-index')->with('success', 'Mahasiswa created successfully!');
     }
-
     public function edit($id)
     {
         $mahasiswa = Mahasiswa::findOrFail($id);
         return view('master-data.data-master.edit-mahasiswa', compact('mahasiswa'));
     }
-
     public function update(Request $request, $id)
     {
         $validasi_data = $request->validate([
@@ -51,7 +49,6 @@ class MahasiswaController extends Controller
 
         return redirect()->route('mahasiswa-index')->with('success', 'Mahasiswa updated successfully!');
     }
-
     public function destroy($id)
     {
         $mahasiswa = Mahasiswa::findOrFail($id);
@@ -59,7 +56,6 @@ class MahasiswaController extends Controller
 
         return redirect()->route('mahasiswa-index')->with('success', 'Mahasiswa deleted successfully!');
     }
-
     public function export()
     {
         return Excel::download(new MahasiswaExport, 'mahasiswa.xlsx');
