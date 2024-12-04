@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->id();
+            $table->string("nama");
+            $table->string("npm");
+            $table->string("prodi");
             $table->timestamps();
-            $table->integer('npm');
-            $table->string('nama');
-            $table->string('prodi');
         });
     }
 
